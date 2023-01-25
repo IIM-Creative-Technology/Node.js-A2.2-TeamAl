@@ -1,9 +1,10 @@
-//const express = require("express");
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
+
+import router from "./routes/user.js";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -28,6 +29,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => res.send("Hello World!"));
+
+app.use("/api/user", router);
 
 //app.get("/school", (req, res) => res.send(JSON.stringify({ msg: "IIM" })));
 
