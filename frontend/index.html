@@ -7,22 +7,27 @@
     <title>Document</title>
   </head>
   <body>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
     <nav>
       <ul>
         <li><a href="#">connexion</a></li>
         <li><a href="#">déconnexion</a></li>
       </ul>
     </nav>
-   
+
     <h1>Chat</h1>
     <div id="socket-chat">
-      <div id=""messages>
-        <input type="text" id="message" />
-        <button type="submit" onclick="send()">Envoyer</button>
-      </div>
+      <ul id="" messages>
+        <div>
+          <input type="text" id="message" />
+          <button type="submit" id="btn" onclick="send()">Envoyer</button>
+        </div>
+      </ul>
     </div>
 
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script src="index.js"></script>
+    <script>
+      send();
+    </script>
   </body>
 </html>

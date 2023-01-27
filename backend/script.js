@@ -13,12 +13,37 @@ import router from "./routes/user.js";
 const app = express();
 const httpServer = http.createServer(app);
 const port = 3000;
+
 const io = new Server(httpServer, {
   cors: {
     origin: "*",
   },
 });
 
+const userSchema = {
+  name: String,
+  email: String,
+  password: String,
+  isAdmin: Boolean,
+  isVerified: Boolean,
+  age: Number,
+};
+
+const User = mongoose.model("User", userSchema);
+
+const amber = new User({
+  name: "Amber",
+  email: "amber.node@gmail.com",
+  password: 1234,
+  isAdmin: true,
+  isVerified: false,
+  age: 20,
+});
+
+const dbResponse = amber.save();
+dbResponse.then((data) => {
+  console.log(data);
+});
 ///////////////// SOCKET /////////////////////
 
 io.on("connection", (socket) => {
@@ -26,6 +51,11 @@ io.on("connection", (socket) => {
 
   socket.on("message", (data) => {
     socket.emit("data", data);
+  });
+
+  socket.on("chat message", (msg) => {
+    console.log("message reçu: " + msg);
+    io.emit("chat message:", msg);
   });
 });
 
