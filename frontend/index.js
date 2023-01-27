@@ -2,6 +2,27 @@ const btn = document.getElementById("btn");
 const ul = document.getElementById("ul");
 const btnSocket = document.getElementById("btnSocket");
 
+//##############
+
+const form = document.getElementById('msg-form')
+const input = document.getElementById("message")
+
+form.addEventListener('submit', (e)=>{
+  e.preventDefault()
+})
+
+if(input.value){
+  socket.emit('message', input.value)
+  input.value = ''
+}
+
+socket.on("mssage", function(msg){
+  const li = document.createElement('li')
+  li.innerText = msg
+  ul.appendChild(li)
+  window.scrollTo(0, document.body.scrollHeight)
+})
+//################
 btn.addEventListener("click", () => {
   fetch("http://localhost:3000/", {
     method: "POST",
