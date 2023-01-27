@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #FFF2F2;
+  color: #f3f3f3;
+  font: 16px;
+}
+
+nav{
+    background: #8EA7E9;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a{
+
+    text-transform: uppercase;
+    color: #f3f3f3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover{
+    color: #7286D3;
+}
+
+
+
+#socket-chat{
+  margin: 50px;
+    
+}
+.zone-saisie input {
+  width: 25%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 20px;
+  font-weight: normal;
+  color: #f3f3f3;
+  background: #8EA7E9;
+}
+
+.zone-saisie button {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: #7286D3;
+  color: #E5E0FF;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#messages {
+  list-style: none;
+}
+
+#messages li {
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  max-width: 30%;
+  word-wrap: break-word;
+}
+
+#messages li:nth-child(even) {
+  background: #8EA7E9;
+  color: #f3f3f3;
+  max-width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-content: left;
+}
+
+#messages li:nth-child(odd) {
+  background: #7286D3;
+  color: #ffffff;
+  max-width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-content: right;
+}
