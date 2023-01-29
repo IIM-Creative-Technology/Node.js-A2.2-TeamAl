@@ -3,7 +3,7 @@ const app=express()
 const path = require("path")
 
 
-app.get("/",(req,res)=> {
+app.get("/login",(req,res)=> {
     res.render("login")
 })
 
