@@ -1,43 +1,16 @@
-const btn = document.getElementById("btn");
-const ul = document.getElementById("ul");
-const btnSocket = document.getElementById("btnSocket");
+const express=require("express")
+const app=express()
+const path = require("path")
 
-btn.addEventListener("click", () => {
-  fetch("http://localhost:3000/", {
-    method: "POST",
-    body: JSON.stringify({
-      school: "IIM",
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((d) => {
-      return d.json();
-    })
-    .then((dd) => {
-      console.log(dd);
-      const li = document.createElement("li");
-      li.innerHTML = dd.school;
-      ul.append(li);
-    })
-    .catch(
-      (err) => {
-        console.log(err);
-      }
 
-      //   .then((res) => res.json())
-      //   .then((data) => console.log(data))
-      //   .catch((err) => console.log(err));
-    );
-});
-const socket = io("http://localhost:3000");
+app.get("/",(req,res)=> {
+    res.render("login")
+})
 
-btnSocket.addEventListener("click", () => {
-  socket.emit("message", {
-    msg: "Hi 👋",
-  });
-  socket.on("data", (data) => {
-    console.log((data));
-  });
-});
+app.get("/signup",(req,res)=> {
+    res.render("signup")
+})
+
+app.listen(3000, ()=> {
+    console.log("port connected")
+})
