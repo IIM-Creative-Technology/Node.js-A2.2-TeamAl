@@ -82,6 +82,14 @@ app.post("/", (req, res) => {
   res.json({ msg: "POST" });
 });
 
+app.post("/api/auth/inscritpion", (res, req) => {
+  res.render("inscription");
+});
+
+app.post("/api/auth/connexion", (res, req) => {
+  res.render("connexion");
+});
+
 ///////////////// LISTEN /////////////////////
 
 httpServer.listen(port, () =>

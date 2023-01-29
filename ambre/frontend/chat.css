@@ -6,43 +6,39 @@
 }
 
 body {
-  background: #FFF2F2;
+  background: #fff2f2;
   color: #f3f3f3;
   font: 16px;
 }
 
-nav{
-    background: #8EA7E9;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+nav {
+  background: #8ea7e9;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-nav li{
-    list-style: none;
-    display: inline-block;
-    margin: 0 10px;
+nav li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
 }
 
-nav a{
-
-    text-transform: uppercase;
-    color: #f3f3f3;
-    text-decoration: none;
-    font-size: 14px;
+nav a {
+  text-transform: uppercase;
+  color: #f3f3f3;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-nav a:hover{
-    color: #7286D3;
+nav a:hover {
+  color: #7286d3;
 }
 
-
-
-#socket-chat{
+#socket-chat {
   margin: 50px;
-    
 }
 .zone-saisie input {
   width: 25%;
@@ -53,16 +49,17 @@ nav a:hover{
   padding: 0 20px;
   font-weight: normal;
   color: #f3f3f3;
-  background: #8EA7E9;
+  background: #8ea7e9;
 }
 
 .zone-saisie button {
   width: 100px;
   height: 50px;
+  border-radius: 10%;
   border: none;
   outline: none;
-  background: #7286D3;
-  color: #E5E0FF;
+  background: #7286d3;
+  color: #eeebfd;
   font-size: 16px;
   cursor: pointer;
 }
@@ -80,7 +77,7 @@ nav a:hover{
 }
 
 #messages li:nth-child(even) {
-  background: #8EA7E9;
+  background: #8ea7e9;
   color: #f3f3f3;
   max-width: 30%;
   display: flex;
@@ -89,7 +86,7 @@ nav a:hover{
 }
 
 #messages li:nth-child(odd) {
-  background: #7286D3;
+  background: #7286d3;
   color: #ffffff;
   max-width: 30%;
   display: flex;

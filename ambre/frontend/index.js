@@ -12,4 +12,3 @@ const receive = (msg) => {
   document.getElementById("messages").appendChild(li);
 };
 socket.on("chat message", receive);
-
