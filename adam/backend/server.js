@@ -9,6 +9,15 @@ const dataFile = path.join(__dirname, "data.json");
 // Pour encoder l'URL
 app.use(express.urlencoded ({extended : true }));
 
+// CORS
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
 app.get("/poll", async (req, res) => {
     let data = JSON.parse(await fs.readFile(dataFile, "utf-8"));
     const totalVotes = Object.values(data).reduce((total, n) => total +=n, 0); // pour aditionner les votes
