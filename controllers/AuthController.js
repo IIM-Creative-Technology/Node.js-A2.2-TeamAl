@@ -34,10 +34,68 @@ const login = (req, res, next) => {
 
     User.findOne({email:username})
     .then(user => {
+        if (user) {
+            bcrypt.compare(req.body.password, user.password, (err, result) => {
+                if (err) {
+                    res.json({
+                        error: err
+                    })
+                }
+
+                if (result) {
+                    res.json({
+                        message: "Connexion réussie"
+                    })
+                } else {
+                    res.json({
+                        message: 'Mot de passe incorrect'
+                    })
+                }
+            })
+        } else {
+            res.json({
+                message:'Mail incorrect'
+            })
+        }
+        
+    })
+}
+
+const deletee = (req, res, next) => {
+    User.findOne({email:username})
+    .then(user => {
+        if (user) {
+            bcrypt.compare(req.body.password, user.password, (err, result) => {
+                if (err) {
+                    res.json({
+                        error: err
+                    })
+                }
+
+                if (result) {
+                    User.findOneAndDelete({email:username})
+                    .then(result => {
+                        res.json({
+                            message: 'Compte supprimé'
+                        })
+                    })
+                } else {
+                    res.json({
+                        message: 'Mot de passe incorrect'
+                    })
+                }
+            })
+        } else {
+            res.json({
+                message:'Mail incorrect'
+            })
+        }
         
     })
 }
 
 module.exports = {
-    register
+    register,
+    deletee,
+    login
 }
